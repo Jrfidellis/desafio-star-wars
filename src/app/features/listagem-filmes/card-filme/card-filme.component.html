@@ -1,5 +1,19 @@
 <div *ngIf="filme" class="app-card-filme">
-  <p>
-    {{ filme.title }}
-  </p>
+  <div class="info">
+    <h1 class="titulo">
+      {{ filme.title }}
+    </h1>
+    <p class="informacao-basica">
+      Director: {{ filme.director }} <br>
+      Release date: {{ filme.release_date | date }}
+    </p>
+    <p class="producers">
+      Producer{{ filme.producer.includes(',') ? 's' : '' }}: {{ filme.producer }}    
+    </p>
+  </div>
+
+  <div class="actions">
+    <button class="button button-primary actions__button" (click)="uh">Opening Crawl</button>
+    <button class="button button-primary actions__button" (click)="uh">Details</button>
+  </div>
 </div>
