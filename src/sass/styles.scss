@@ -50,3 +50,17 @@ body, input[text], a {
 p, h1, h2, h3, button {
   font-family: 'Merriweather Sans', sans-serif;
 }
+
+// Responsividade 
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-medium) {
+  .hidden-tablet {
+    display: none;
+  }
+}

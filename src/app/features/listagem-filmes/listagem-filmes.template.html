@@ -1,7 +1,7 @@
 <div *ngIf="filmes" class="app-listagem-filmes">
   <div class="filmes">
-    <app-card-filme [filme]="filmes[filmeIndex]"></app-card-filme>
-    <app-card-filme [filme]="filmes[filmeIndex+1]"></app-card-filme>
+    <app-card-filme class="hidden-mobile" [filme]="filmes[filmeIndex]"></app-card-filme>
+    <app-card-filme class="hidden-mobile hidden-tablet" [filme]="filmes[filmeIndex+1]"></app-card-filme>
     <app-card-filme [filme]="filmes[filmeIndex+2]"></app-card-filme>
   </div>
   

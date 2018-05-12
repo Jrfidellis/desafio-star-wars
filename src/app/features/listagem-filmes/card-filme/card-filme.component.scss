@@ -1,5 +1,29 @@
+@import '../../../../sass/variables';
+
 .app-card-filme {
-    height: 200px;
-    width: 200px;
+    height: 550px;
+    width: 400px;
     background: white;
+    border-radius: 2px;
+}
+
+
+@media only screen and (max-width: $breakpoint-large) {
+    .app-card-filme {
+      width: 300px;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+    .app-card-filme {
+        height: 75vh;
+        width: 350px;
+    }
+}
+
+@media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-medium) {
+    .app-card-filme {
+      width: 330px;
+      height: 70vh;
+    }
 }

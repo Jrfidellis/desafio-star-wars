@@ -22,9 +22,9 @@ export class ListagemFilmesComponent implements OnInit {
 
   organizarLista(isInverso: boolean) {
     if (isInverso) {
-      this.filmes.push(this.filmes.shift());
-    } else {
       this.filmes.unshift(this.filmes.pop());
+    } else {
+      this.filmes.push(this.filmes.shift());
     }
   }
 

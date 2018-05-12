@@ -10,6 +10,7 @@ import { ListagemFilmesComponent } from './features/listagem-filmes/listagem-fil
 import { CardFilmeComponent } from './features/listagem-filmes/card-filme/card-filme.component';
 
 import { FilmeService } from './services/filme/filme.service';
+import { SwapiGenericService } from './services/swapi-generic/swapi-generic.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilmeService } from './services/filme/filme.service';
     AppRoutingModule
   ],
   providers: [
-    FilmeService
+    FilmeService,
+    SwapiGenericService
   ],
   bootstrap: [AppComponent]
 })
