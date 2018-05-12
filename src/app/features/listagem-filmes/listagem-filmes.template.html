@@ -1,0 +1,13 @@
+<div *ngIf="filmes" class="app-listagem-filmes">
+  <div class="filmes">
+    <app-card-filme [filme]="filmes[filmeIndex]"></app-card-filme>
+    <app-card-filme [filme]="filmes[filmeIndex+1]"></app-card-filme>
+    <app-card-filme [filme]="filmes[filmeIndex+2]"></app-card-filme>
+  </div>
+  
+  <div class="actions">
+    <button class="actions__button actions__button--backwards" (click)="organizarLista(true)"></button>
+    <button class="actions__button" (click)="organizarLista(false)"></button>
+  </div>
+</div>
+  
