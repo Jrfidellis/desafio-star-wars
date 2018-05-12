@@ -21,3 +21,7 @@ export interface IFilmes {
     results: IFilme[];
     count: number;
 }
+
+// export interface ICharacter {
+
+// }
