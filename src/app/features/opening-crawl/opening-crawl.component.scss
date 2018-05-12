@@ -1,12 +1,7 @@
-body {
+.app-opening-crawl {
   background-color: black;
-}
-  
-.star {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  background-color: white;
+  display: flex;
+  align-items: center;
 }
 
 p {
@@ -14,38 +9,48 @@ p {
 }
   
 #board {
-  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-  transform: perspective(300px) rotateX(25deg);
+  transform: perspective(300px) rotateX(18deg);
   transform-origin: 50% 100%;
-  text-align: justify;
+  
+  display: flex;
+  justify-content: center;
   position: absolute;
-  margin-left: -9em;
-  font-weight: bold;
-  overflow: hidden;
-  font-size: 350%;
-  height: 50em;
-  width: 18em;
   bottom: 0;
-  left: 50%;
+  
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-weight: bold;
+  font-size: 350%;
+  overflow: hidden;
+
+  height: 50em;
+  width: 21em;
 }
   
 #board:after {
   position: absolute;
-  content: ' ';
   bottom: 60%;
   left: 0;
   right: 0;
   top: 0;
+  content: ' ';
 }
   
 #content {
-  animation: scroll 100s linear 16s;
+  animation: scroll 100s linear 0s;
   position: absolute;
   top: 100%;
 }
-  
-#title, #subtitle {
+
+#title, #subtitle, #text {
   text-align: center;
+}
+
+#title {
+  margin-bottom: 50px;
+}
+
+#text {
+  line-height: 90px;
 }
 
 @keyframes scroll {

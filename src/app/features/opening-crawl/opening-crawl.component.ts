@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { FilmeService } from '../../services/filme/filme.service';
+import { IFilme } from '../../services/filme/filme';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-opening-crawl',
@@ -7,20 +12,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OpeningCrawlComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private filmeService: FilmeService) { }
 
-  @Input() capitulo: number;
-  @Input() texto: string;
-  @Input() titulo: string;
-
-  capituloEmRomano: string;
+  filme$: Observable<IFilme>;
 
   ngOnInit() {
     this.initializeStars();
-    this.capituloEmRomano = this.romanizer(this.capitulo);
+    this.filme$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.filmeService.obterFilmePorId(params.get('id')))
+      );
   }
 
-  private romanizer(num: number) {
+  romanizer(num: number) {
     const lookup = {X: 10, IX: 9, V: 5, IV: 4, I: 1};
     let roman = '', i;
 
@@ -34,7 +38,7 @@ export class OpeningCrawlComponent implements OnInit {
     return roman;
   }
 
-  // baseado em https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e
+  // Baseado em https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e
   private initializeStars() {
     const quantidadeStars = 100;
 
@@ -52,7 +56,11 @@ export class OpeningCrawlComponent implements OnInit {
       const xy = posicaoAleatoria();
       star.style.top = xy[0] + 'px';
       star.style.left = xy[1] + 'px';
-      document.body.appendChild(star);
+      star.style.position = 'absolute';
+      star.style.width = '1px';
+      star.style.height = '1px';
+      star.style.backgroundColor = 'white';
+      document.getElementsByClassName('app-opening-crawl').item(0).appendChild(star);
     }
   }
 

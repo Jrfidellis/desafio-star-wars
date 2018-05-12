@@ -14,8 +14,8 @@ export class FilmeService {
     return this.http.get<IFilmes>(url).toPromise();
   }
 
-  obterFilmePorId(id: number): Promise<IFilme> {
-    const url = `${this.filmesUrl}/${id}`;
+  obterFilmePorId(id: string): Promise<IFilme> {
+    const url = `${this.filmesUrl}${id}`;
     return this.http.get<IFilme>(url).toPromise();
   }
 

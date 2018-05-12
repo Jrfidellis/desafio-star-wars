@@ -1,8 +1,13 @@
-<div id="board">  
+<div class="app-opening-crawl">
+
+  <div  *ngIf="filme$ | async as filme" id="board">
     <div id="content">
-      <p id="title">Episode {{ capituloEmRomano }}</p>
-      <p id="subtitle"> {{ titulo | uppercase }}</p>
+      <p id="title">Episode {{ romanizer(filme.episode_id) }}</p>
+      <p id="subtitle"> {{ filme.title | uppercase }}</p>
       <br>
-      <p> {{ texto }} </p>    
+      <p id="text"> {{ filme.opening_crawl }} </p>    
     </div>  
-  </div>
+  </div>  
+
+  <button class="button button-primary actions__button" [routerLink]="['/film-listing']">Back to films</button>
+</div>

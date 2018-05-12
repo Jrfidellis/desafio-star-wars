@@ -8,7 +8,7 @@ import { OpeningCrawlComponent } from './features/opening-crawl/opening-crawl.co
 const routes: Routes = [
   { path: '', redirectTo: 'film-listing', pathMatch: 'full' },
   { path: 'film-listing', component: ListagemFilmesComponent },
-  { path: 'opening-crawl', component: OpeningCrawlComponent }
+  { path: 'opening-crawl/:id', component: OpeningCrawlComponent }
 ];
 
 @NgModule({
