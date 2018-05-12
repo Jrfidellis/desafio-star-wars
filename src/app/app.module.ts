@@ -8,6 +8,7 @@ import { AppComponent } from './shell/app.component';
 
 import { ListagemFilmesComponent } from './features/listagem-filmes/listagem-filmes.component';
 import { CardFilmeComponent } from './features/listagem-filmes/card-filme/card-filme.component';
+import { OpeningCrawlComponent } from './features/opening-crawl/opening-crawl.component';
 
 import { FilmeService } from './services/filme/filme.service';
 import { SwapiGenericService } from './services/swapi-generic/swapi-generic.service';
@@ -16,7 +17,8 @@ import { SwapiGenericService } from './services/swapi-generic/swapi-generic.serv
   declarations: [
     AppComponent,
     ListagemFilmesComponent,
-    CardFilmeComponent
+    CardFilmeComponent,
+    OpeningCrawlComponent
   ],
   imports: [
     BrowserModule,
