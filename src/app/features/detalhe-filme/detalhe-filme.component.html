@@ -1,3 +1,33 @@
-<p>
-  detalhe-filme works!
-</p>
+<div class="app-detalhe-filme">
+
+  <div class="cards">
+    <div class="card card--planetas">
+      <h1>Planets</h1>
+      <ng-container *ngFor="let planeta of planetas; let i=index">
+        <p *ngIf="i<8">{{ planeta.name }}</p>
+        <p *ngIf="i===8">...</p>
+      </ng-container>
+    </div>
+
+    <div class="card card--naves">
+      <h1>Starships</h1>
+      <ng-container *ngFor="let nave of naves; let i=index">
+        <p *ngIf="i<8">{{ nave.name }}</p>
+        <p *ngIf="i===8">...</p>
+      </ng-container>
+    </div>
+
+    <div class="card card--personagens">
+      <h1>Character</h1>
+      <ng-container *ngFor="let personagem of personagens; let i=index">
+        <p *ngIf="i<8">{{ personagem.name }}</p>
+        <p *ngIf="i===8">...</p>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="button button-primary" [routerLink]="['/film-listing']">Back to films</button>
+  </div>
+
+</div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SwapiGenericService } from '../../services/swapi-generic/swapi-generic.service';
-import { IFilme } from '../../services/filme/filme';
+import { IFilme, IPlaneta, INave, IPersonagem } from '../../services/filme/filme';
 import { Observable } from 'rxjs/Observable';
 import { FilmeService } from '../../services/filme/filme.service';
 
@@ -18,36 +18,41 @@ export class DetalheFilmeComponent implements OnInit {
     private filmeService: FilmeService
   ) { }
 
-  planetas: any[];
-  especies: any[];
-  naves: any[];
+  planetas: IPlaneta[] = [];
+  naves: INave[]= [];
+  personagens: IPersonagem[] = [];
+
+  filme$: Observable<IFilme>;
 
   ngOnInit() {
-    this.route.paramMap.pipe(
+    this.filme$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.filmeService.obterFilmePorId(params.get('id')).then(filme => {
-          this.popularObjetos(filme);
-        }))
+        this.filmeService.obterFilmePorId(params.get('id')))
       );
+
+    this.filme$.subscribe(filme => {
+      this.popularObjetos(filme);
+    });
   }
 
   private popularObjetos(filme: IFilme){
+    
     filme.planets.forEach(url => {
-      this.genericService.obterDadosComUrlCompleta(url).then(planeta => {
+      this.genericService.obterDadosComUrlCompleta<IPlaneta>(url).then(planeta => {
         this.planetas.push(planeta);
       });
     });
 
-    filme.species.forEach(url => {
-      this.genericService.obterDadosComUrlCompleta(url).then(especie => {
-        this.especies.push(especie);
+    filme.starships.forEach(url => {
+      this.genericService.obterDadosComUrlCompleta<INave>(url).then(nave => {
+        this.naves.push(nave);
       });
     });
 
-    filme.starships.forEach(url => {
-      this.genericService.obterDadosComUrlCompleta(url).then(nave => {
-        this.naves.push(nave);
-      });
+    filme.characters.forEach(url => {
+      this.genericService.obterDadosComUrlCompleta<IPersonagem>(url).then(personagem => {
+        this.personagens.push(personagem);
+      })
     });
   }
 

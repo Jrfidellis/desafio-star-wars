@@ -1,0 +1,32 @@
+.app-detalhe-filme {
+    background: #333;
+    .cards, .actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .cards {
+        height: 85vh;
+        .card {
+            width: 300px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .app-detalhe-filme {
+        .cards {
+            flex-direction: column;
+            .card {
+                padding: 10px;
+        
+                h1 {
+                    font-size:  14px;
+                }
+            }
+        }
+    }
+}

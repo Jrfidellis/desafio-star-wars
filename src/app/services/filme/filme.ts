@@ -22,6 +22,29 @@ export interface IFilmes {
     count: number;
 }
 
-// export interface ICharacter {
+export interface IPlaneta {
+    diameter: number;
+    name: string;
+    population: number;
 
-// }
+    // TODO: mapear como enums
+    climate: string;
+    terrain: string;
+}
+
+export interface INave {
+    cargo_capacity: number;
+    consumables: string;
+    cost_in_credits: number;
+    crew: number;
+    length: number;
+    manufacturer: string;
+    model: string;
+    name: string;
+    passengers: number;
+    starship_class: string;
+}
+
+export interface IPersonagem {
+    name: string;
+}
