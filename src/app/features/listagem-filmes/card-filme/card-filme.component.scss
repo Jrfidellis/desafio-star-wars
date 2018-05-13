@@ -1,8 +1,8 @@
 @import '../../../../sass/variables';
 
 .app-card-filme {
-    height: 550px;
-    width: 400px;
+    height: 60vh;
+    width: 350px;
     background: white;
     border-radius: 2px;
 
@@ -22,7 +22,6 @@
 
     .informacao-basica, .producers, .titulo {
         text-align: center;
-
     }
     
     .producers {
@@ -32,7 +31,7 @@
 
     .actions {
         margin-bottom: 35px;
-        width: 50%;
+        width: 55%;
         display: flex;
         justify-content: space-between;
     }
